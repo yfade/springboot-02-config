@@ -1,0 +1,38 @@
+server:
+  port: 8082
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8085
+
+spring:
+  profiles: dev
+
+---
+server:
+  port: 8086
+spring:
+  profiles: prod
+---
+#person:
+#  age: 13
+#  boss: false
+#  birth: 2008/11/12
+#  map:
+#    k1: 111
+#    k2: aaa
+#  list:
+#    - zs
+#    - ls
+#    - ww
+#    - zl
+#  dog:
+#    name: ${person.hello:hello}_xtq
+#    age: ${random.int}
+#  last-name: 张三${random.uuid}
+#  sex: m
+#  weight: 60
+#  email: ppppppppppp
+
