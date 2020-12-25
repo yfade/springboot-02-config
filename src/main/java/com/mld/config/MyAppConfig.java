@@ -1,8 +1,11 @@
 package com.mld.config;
 
+import com.mld.bean.Person;
 import com.mld.service.HelloService;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * 指明当前类是一个配置类，代替之前的spring配置文件
@@ -14,7 +17,9 @@ import org.springframework.context.annotation.Configuration;
  * Lite(proxyBeanMethods = false)【每个@Bean方法被调用多少次返回的组件都是新创建的】
  * 组件依赖必须使用Full模式默认。其他默认是否Lite模式
  */
-@Configuration
+@Configuration(proxyBeanMethods = false)
+//@EnableConfigurationProperties(Person.class)
+@Import({Person.class})
 public class MyAppConfig {
 
     /**
@@ -27,4 +32,8 @@ public class MyAppConfig {
         return new HelloService();
     }
 
+    @Bean
+    public Person person(){
+        return new Person();
+    }
 }

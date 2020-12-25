@@ -1,9 +1,12 @@
 package com.mld.bean;
 
+import lombok.Data;
+import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import java.rmi.Naming;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +26,10 @@ import java.util.Map;
  *  2.application.yml
  *  3.自定义的配置文件
  */
-@Component
-//@PropertySource(value = {"classpath:person.properties"})
+@Component("ffffff")
+@Data
+@ToString
+@PropertySource(value = {"classpath:person.properties"})
 @ConfigurationProperties(prefix = "person")
 public class Person {
     private String lastName;
@@ -38,100 +43,6 @@ public class Person {
     private double height;
     private String email;
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", boss=" + boss +
-                ", birth=" + birth +
-                ", map=" + map +
-                ", list=" + list +
-                ", dog=" + dog +
-                ", weight=" + weight +
-                ", height=" + height +
-                ", email='" + email + '\'' +
-                '}';
-    }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public boolean isBoss() {
-        return boss;
-    }
-
-    public void setBoss(boolean boss) {
-        this.boss = boss;
-    }
-
-    public Date getBirth() {
-        return birth;
-    }
-
-    public void setBirth(Date birth) {
-        this.birth = birth;
-    }
-
-    public Map<String, Object> getMap() {
-        return map;
-    }
-
-    public void setMap(Map<String, Object> map) {
-        this.map = map;
-    }
-
-    public List<String> getList() {
-        return list;
-    }
-
-    public void setList(List<String> list) {
-        this.list = list;
-    }
-
-    public Dog getDog() {
-        return dog;
-    }
-
-    public void setDog(Dog dog) {
-        this.dog = dog;
-    }
 
 }
